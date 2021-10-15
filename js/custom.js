@@ -18,6 +18,51 @@ $('.media-slider').slick({
     slidesToShow: 4,
     slidesToScroll: 3,
     arrows: true,
-    // variableWidth: true
-  });
+   
+
+    responsive: [{
+      breakpoint: 767,
+      settings: {
+        centerMode: false,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        variableWidth: true,
+        
+      },
+
+      breakpoint: 1024,
+      settings: {
+        centerMode: false,
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        variableWidth: true,
+      
+      }
+    }]
+});
+
+// $('.chara-item-slider').slick({
+//   infinite: true,
+//   slidesToShow: 4,
+//   slidesToScroll: 1,
+//   arrows: false,
+//     // You can unslick at a given breakpoint now by adding:
+//     // settings: "unslick"
+//     // instead of a settings object
+  
+//     responsive: [{
+//       breakpoint: 500,
+//       settings: {
+//         centerMode: false,
+//         slidesToShow: 2,
+//         slidesToScroll: 2,
+//         variableWidth: true,
+//       }
+//     }]
+ 
+// });
+  
+
+
+
       
