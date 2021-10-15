@@ -63,6 +63,23 @@ $('.media-slider').slick({
 // });
   
 
+$('.video-pop').click(function () {
+  
+  $('.video-playBtn').addClass('popupVisible');
+});
 
+
+
+$(function() {
+  $(".video-pop").on("click", function(e) {
+    $(".video-playBtn").addClass("popupVisible");
+    e.stopPropagation()
+  });
+  $(document).on("click", function(e) {
+    if ($(e.target).is(".video-playBtn") === false) {
+      $(".video-playBtn").removeClass("popupVisible");
+    }
+  });
+});
 
       

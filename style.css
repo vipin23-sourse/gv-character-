@@ -495,8 +495,10 @@ body {
   position: absolute;
   z-index: 1;
   right: 0;
-  top: -5rem;
+  top: 0;
+  transform: translateY(-223px);
   overflow: hidden;
+  transition: all .2s ease-in;
 }
 
 @media (min-width: 1441px) {
@@ -1441,5 +1443,35 @@ footer .footer-bottom .footer-links a {
 
 .quick-links, .contact-us, .news-letter {
   margin-top: 1.5rem;
+}
+
+.popupVisible {
+  transform: translateY(-41px);
+}
+
+@keyframes popupanim {
+  0% {
+    transform: translateY(-223px);
+  }
+  1% {
+    transform: translateY(-41px);
+    transition-delay: 30s;
+  }
+  90% {
+    transform: translateY(-141px);
+  }
+  100% {
+    transform: translateY(-41px);
+  }
+}
+
+@media (max-width: 37.5em) {
+  .footer-logo {
+    text-align: center;
+  }
+  .footer-logo img {
+    width: 12.7rem !important;
+    margin-bottom: 2rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
