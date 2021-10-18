@@ -296,7 +296,7 @@
 }
 
 .page-wrapper {
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -348,14 +348,9 @@ body {
 }
 
 .container {
+  max-width: 108rem;
   padding: 0 1.5rem;
   margin: 0 auto;
-}
-
-@media (min-width: 90em) {
-  .container {
-    max-width: 144rem;
-  }
 }
 
 .header {
@@ -401,8 +396,10 @@ body {
 }
 
 .main-banner {
-  overflow-x: hidden;
   position: relative;
+  height: auto;
+  overflow: hidden;
+  overscroll-behavior-x: none;
 }
 
 .main-banner__text {
@@ -539,7 +536,7 @@ body {
 
 .characters-section {
   background-image: linear-gradient(to bottom, #F2E0C7, #FDF0DF);
-  padding: 10rem 0;
+  height: 74.5rem;
 }
 
 @media (max-width: 37.5em) {
@@ -552,6 +549,8 @@ body {
   display: flex;
   align-items: flex-start;
   min-height: 74.5rem;
+  justify-content: flex-end;
+  position: relative;
 }
 
 @media (max-width: 37.5em) {
@@ -563,6 +562,9 @@ body {
 
 .characters-section__character {
   max-width: 66.6rem;
+  transform: translateX(-243px);
+  position: absolute;
+  left: 0;
 }
 
 @media (max-width: 75em) {
@@ -596,7 +598,7 @@ body {
 }
 
 .characters-section__character-details {
-  flex: 0 1 69.5rem;
+  flex: 0 1 62%;
   transform: translateY(14rem);
 }
 
@@ -708,6 +710,7 @@ body {
 
 .zoya {
   background-image: linear-gradient(to bottom, #fdf0df, #ffffff);
+  height: 817px;
 }
 
 .zoya .characters-section__character-img {
@@ -746,7 +749,7 @@ body {
 }
 
 .zoya .characters-section__wrap {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 @media (max-width: 37.5em) {
@@ -761,6 +764,12 @@ body {
 
 .zoya .characters-section__character {
   margin-top: 7rem;
+  right: 0;
+  left: unset;
+}
+
+.zoya .characters-section__character {
+  transform: translateX(243px);
 }
 
 .zoya .characters-section__character-details__top {
@@ -770,6 +779,7 @@ body {
 
 .ozka {
   background-image: linear-gradient(to top, #fdf0df, #ffffff);
+  height: 817px;
 }
 
 .ozka .characters-section__character-bg {
@@ -814,6 +824,7 @@ body {
 
 .aya {
   background-image: linear-gradient(to top, #fdf0df, #fdf0df);
+  height: 817px;
 }
 
 .aya .characters-section__character-img {
@@ -851,10 +862,12 @@ body {
 .aya .characters-section__character {
   max-width: 66.6rem;
   margin-top: 8rem;
+  transform: translateX(625px);
+  right: 0;
 }
 
 .aya .characters-section__wrap {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 @media (max-width: 37.5em) {
@@ -885,10 +898,6 @@ body {
     top: -38px;
     width: 100%;
   }
-}
-
-.aya .characters-section__character {
-  position: relative;
 }
 
 @media (max-width: 37.5rem) {
@@ -1116,6 +1125,7 @@ body {
 @media (max-width: 75em) {
   .watchonus {
     min-height: 84rem;
+    padding: 2rem 0;
   }
 }
 
@@ -1232,6 +1242,13 @@ body {
   }
 }
 
+@media (max-width: 798px) {
+  .footer-chara {
+    top: -25rem;
+    width: 39%;
+  }
+}
+
 @media (max-width: 37.5em) {
   .footer-chara {
     width: 51%;
@@ -1254,10 +1271,31 @@ body {
   }
 }
 
+@media (max-width: 65em) {
+  .footer-baloon {
+    top: 47rem;
+    right: -5rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .footer-baloon {
+    bottom: -6rem;
+    right: -5rem;
+    top: unset;
+  }
+}
+
 footer {
   background-image: linear-gradient(to bottom, #B38755, #DCB677);
   padding: 16rem 0;
   position: relative;
+}
+
+@media (max-width: 798px) {
+  footer {
+    padding: 8rem 0;
+  }
 }
 
 @media (max-width: 37.5em) {
@@ -1381,6 +1419,12 @@ footer .footer-bottom .footer-links {
   margin-top: 80px;
 }
 
+@media (max-width: 37.5em) {
+  footer .footer-bottom .footer-links {
+    margin-top: 4rem;
+  }
+}
+
 footer .footer-bottom .footer-links ul {
   display: flex;
   align-items: center;
@@ -1473,5 +1517,28 @@ footer .footer-bottom .footer-links a {
     width: 12.7rem !important;
     margin-bottom: 2rem;
   }
+}
+
+.svg-anim {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 93%;
+  z-index: 1;
+}
+
+.line {
+  fill: none;
+  stroke: #979797;
+  stroke-width: 3px;
+  stroke-dasharray: 4709.57;
+  stroke-dashoffset: 4709.57;
+}
+
+.round1 {
+  stroke: #e7cca9;
+  fill: none;
+  stroke-width: 3px;
+  stroke-dasharray: 1;
 }
 /*# sourceMappingURL=style.css.map */
