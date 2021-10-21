@@ -11,13 +11,40 @@
 //   }
 // }
 
+  // video gallery
+  $('.modal').on('shown.bs.modal', function (e) {
+    
+    $('.slidervideo-nav').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      asNavFor: '.slider-video-gallery',
+      dots: false,
+      focusOnSelect: true,
+      infinite: false,
+      arrows:false,
+    });
+  
+    $('.slider-video-gallery').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: false,
+      fade: true,
+      asNavFor: '.slidervideo-nav',
+      autoplay: false,
+      arrows:true,
+    });
+  })
+
+
+
 
   
 $('.media-slider').slick({
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 3,
-    arrows: true,
+  arrows: true,
+  // variableWidth: true,
    
 
     responsive: [{
@@ -88,20 +115,153 @@ $(function() {
 $(document).ready(function() { 
   
   /* get the real length of the path and set it for dasharray and dashoffset */
-  // console.log(document.querySelector('path').getTotalLength())
+ console.log(document.querySelector('path').getTotalLength())
 
   var $dashOffset = $(".line-main").css("stroke-dashoffset");
 
   $(window).scroll(function() { 
     var $percentageComplete = (($(window).scrollTop() / ($("html").height() - $(window).height())) * 120);
+    console.log($percentageComplete);
     var $newUnit = parseInt($dashOffset, 10);
     var $offsetUnit = $percentageComplete * ($newUnit / 60);
     $(".line-main").css("stroke-dashoffset", $newUnit - $offsetUnit);
     $("polygon").css("stroke-dashoffset", $newUnit - $offsetUnit);
   });
+ 
 });
 
 
+
+
+
+
+// function lineTwo(){
+	
+//   var $dashOffset = $(".line-main2").css("stroke-dashoffset");
+
+//   $(window).scroll(function() { 
+//     var $percentageComplete = (($(window).scrollTop() / ($("html").height() - $(window).height())) * 20);
+//     console.log($percentageComplete);
+//     var $newUnit = parseInt($dashOffset, 10);
+//     var $offsetUnit = $percentageComplete * ($newUnit / 20);
+//     $(".line-main2").css("stroke-dashoffset", $newUnit - $offsetUnit);
+//     $("polygon").css("stroke-dashoffset", $newUnit - $offsetUnit);
+//   });	
+// }
+
+// lineTwo();
+
+
+
+let ticking = false;
+let last_known_scroll_position = 0;
+let updatePath = false;
+
+const element = document.querySelector('svg');
+const path = element.querySelector('#Path_15');
+const path1 = element.querySelector('#Path_16');
+let totalLength = 0;
+
+initPath(path)
+
+function initPath(path){
+   totalLength = path.getTotalLength();
+   path.style.strokeDasharray = `${totalLength}`;
+   path.style.strokeDashoffset = totalLength;
+}
+
+
+
+
+function handleEntries(entries) {
+  console.log(entries)
+   entries.forEach(entry => {
+    console.log(entry)
+    if(entry.isIntersecting) {
+      console.log(entry.target)
+    }
+    
+  })
+}
+
+let observer = new IntersectionObserver((entries, observer) => { 
+		entries.forEach(entry => {
+		if(entry.isIntersecting){
+			console.log(entry);
+      updatePath = true;
+		} else {
+      updatePath = false;
+    }
+		});
+	}, {rootMargin: "0px 0px 0px 0px"});
+
+
+  observer.observe(element);
+
+function doSomething(scroll_pos) {
+  if(!updatePath) {
+    return;
+  }
+  window.requestAnimationFrame(()=>{
+    const center = window.innerHeight / 2;
+    const boundaries = path.getBoundingClientRect();
+    const top = boundaries.top;
+    const height = boundaries.height;
+    const percentage = (center - top ) / height;
+    const drawLength = percentage > 0 ? totalLength * percentage : 0;
+    path.style.strokeDashoffset = drawLength < totalLength ? totalLength - drawLength : 0;
+ 
+  })
+
+}
+
+window.addEventListener('scroll', function(e) {
+  last_known_scroll_position = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(last_known_scroll_position);
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
+
+
+
+
+
+
+
+// function lineOne(){
+//   $(window).scroll(function() { 
+  
+      
+//       var windowHeight = window.innerHeight; 
+//       var pathHeight = document.getElementById("Path_8").getBBox(); 
+//       var scrolledheight =  $percentageComplete;
+      
+//       var $dashOffset = $(".line-main").css("stroke-dashoffset");
+
+//       $(window).scroll(function() { 
+//         var $percentageComplete = (($(window).scrollTop() / ($("html").height() - $(window).height())) * 120);
+//         console.log($percentageComplete);
+//         var $newUnit = parseInt($dashOffset, 10);
+//         var $offsetUnit = $percentageComplete * ($newUnit / 60);
+//         $(".line-main").css("stroke-dashoffset", $newUnit - $offsetUnit);
+//         $("polygon").css("stroke-dashoffset", $newUnit - $offsetUnit);
+//       });
+     
+
+      
+//       if(scrolledheight >= pathHeight){
+//       	lineTwo();
+//       }
+//   });
+// }
+
+// lineOne();
 
 
 
