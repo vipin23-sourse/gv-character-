@@ -37,7 +37,6 @@
 
 
 
-
   
 $('.media-slider').slick({
     infinite: true,
@@ -74,6 +73,9 @@ $('.video-pop').click(function () {
   $('.video-playBtn').addClass('popupVisible');
 });
 
+$(".close").on('click', function(){
+  stopVideo();
+});
 
 
 $(function() {

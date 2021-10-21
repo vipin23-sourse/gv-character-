@@ -312,7 +312,7 @@
 }
 
 .btn--primary {
-  background-color: var(--color-primary);
+  background-color: #B78C59;
   color: var(--color-white);
   position: absolute;
   bottom: 6rem;
@@ -338,7 +338,7 @@
   font-family: 'Rammetto One';
 }
 
-.btn, .main-banner__sub-title, .chara-info__sub-title, .chara-item__title, .media-section__title span, .media-item__calendar .month, .media-item__info, .watch-btn, footer .footer-bottom .footer-title, .btn-footer, .modal-content__info h4 {
+.btn, .main-banner__sub-title, .chara-info__sub-title, .chara-item__title, .media-section__title span, .media-item__calendar .month, .media-item__info, .watch-btn, footer .footer-bottom .footer-title, .btn-footer, .modal-content__info h4, .lang-btn {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
 }
@@ -369,6 +369,10 @@ body {
   max-width: 108rem;
   padding: 0 1.5rem;
   margin: 0 auto;
+}
+
+.main-banner {
+  position: relative;
 }
 
 .main-banner .page-wrapper {
@@ -436,8 +440,6 @@ body {
 .main-banner {
   position: relative;
   height: auto;
-  overflow: hidden;
-  overscroll-behavior-x: none;
 }
 
 .main-banner__text {
@@ -1898,5 +1900,39 @@ footer .footer-bottom .footer-links a {
 
 .video-gallery .slick-prev {
   left: -82px;
+}
+
+.lang-btn {
+  color: var(--color-white);
+  margin-inline-start: 1rem;
+  cursor: pointer;
+}
+
+.lang-btn--en {
+  position: relative;
+}
+
+.lang-btn--en::after {
+  content: "";
+  display: inline-block;
+  height: 1.5rem;
+  position: absolute;
+  right: -5px;
+  top: 5px;
+  width: 1px;
+  background-color: var(--color-white);
+}
+
+.char-head {
+  position: absolute;
+  bottom: -20rem;
+  z-index: 3;
+  left: 0;
+}
+
+.waleef {
+  margin-top: 14rem;
+  background-color: #F4E4CF;
+  background-image: linear-gradient(to bottom, #F4E4CF, #fdf0df);
 }
 /*# sourceMappingURL=style.css.map */
