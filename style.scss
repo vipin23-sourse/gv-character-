@@ -12,6 +12,13 @@
     
 }
 
+.rtl-direction {
+  direction: rtl; 
+}
+.ltr-direction {
+  direction: ltr; 
+}
+
 @font-face {
     font-family: 'Rammetto One';
     src: url('font/RammettoOne-Regular.eot');
@@ -260,7 +267,7 @@
     background-color: var(--color-white);
     color: var(--color-black);
     border-radius: 2.5rem;
-    padding: 1rem 3rem;
+    padding: 1rem ;
     min-width: 15rem;
     font-size: 1.6rem;
     @extend%font-bold;
@@ -270,8 +277,10 @@
       background-color: #B78C59;
       color: var(--color-white);
       position: absolute;
-      bottom: 6rem;
-      right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 19.3rem;
+    bottom: 2rem;
       border: 2px solid var(--color-white);
       z-index: 999;
 
@@ -347,6 +356,12 @@ body{
     padding: 1.5rem 0;
     width: 100%;
 
+    .container{
+      @media(min-width:1600px){
+        max-width: 1376px;
+      }
+    }
+
     &__wrap{
         display: flex;
         align-items: center;
@@ -399,6 +414,9 @@ button{
 .main-banner{
     position: relative;
     height: auto;
+    @media(max-width:767px){
+      height: 60rem;
+    }
     
 
   
@@ -541,8 +559,9 @@ button{
     background-image:linear-gradient(to bottom, #F2E0C7, #FDF0DF) ;
   //  padding: 0;
    height: 74.5rem;
-   @media(max-width:37.5em){
+   @media(max-width:767px){
     padding: 5rem 0;
+    height: auto;
   }
 
     &__wrap{
@@ -577,6 +596,8 @@ button{
         }
         @media(max-width:37.5em){
          height: 46rem;
+         position: relative;
+         transform: translateX(0);
         }
     }
 
@@ -692,6 +713,9 @@ button{
 .zoya{
     background-image:linear-gradient(to bottom, #fdf0df, #ffffff) ;
     height: 817px;
+    @media(max-width:767px){
+      height: auto;
+     }
     .characters-section__character-img {
         top: -2rem;
         transform: translateX(-52%);
@@ -734,6 +758,9 @@ button{
     }
     .characters-section__character{
       transform: translateX(243px);
+      @media(max-width:767px){
+        transform: translate(0);
+      }
     }
     .characters-section__character-details__top{
       margin-inline-end: auto;
@@ -744,6 +771,9 @@ button{
 .ozka{
     background-image:linear-gradient(to top, #fdf0df, #ffffff) ;
     height: 817px;
+    @media(max-width:767px){
+     height: auto;
+    }
     .characters-section__character-bg{
         transform: scaleX(-1);
     }
@@ -778,10 +808,13 @@ button{
 .aya{
     background-image:linear-gradient(to top, #fdf0df, #fdf0df) ;
     height: 817px;
+    @media(max-width:767px){
+      height: auto;
+     }
     .characters-section__character-img {
         position: absolute;
         left: 50%;
-        top: -11rem;
+        top: -7rem;
         transform: translateX(-42%);
         @media(max-width:75em){
           right: 8.2rem;
@@ -810,6 +843,9 @@ button{
         margin-top: 8rem;
         transform: translateX(625px);
         right: 0;
+        @media(max-width:767px){
+          transform: translate(0);
+         }
     }
     .characters-section__wrap{
         justify-content: flex-start;
@@ -1201,9 +1237,10 @@ position: absolute;
 
 .cloud-group{
     position: absolute;
-    bottom: 0;
+    bottom: 20rem;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
 }
 
 .footer-chara, .footer-baloon{
@@ -1230,9 +1267,9 @@ position: absolute;
   
 }
 .footer-baloon{
-    top: 20rem;
-    transform: translateY(-16rem);
-    right: -14rem;
+  top: 0;
+    transform: translateY(-29rem);
+    right: -17rem;
 
     @media(max-width:75em){
       top: 34rem;
@@ -1274,6 +1311,12 @@ footer{
     }
     a{
         text-decoration: none;
+    }
+
+    .container{
+      @media(min-width:1600px){
+        max-width: 1376px;
+      }
     }
 	
 	.footer-bottom {
@@ -1461,7 +1504,7 @@ footer{
   position:absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 93%;
+  top: 78%;
   z-index: 1;
 
   // svg{
@@ -1495,14 +1538,25 @@ footer{
 
 .modal-info{
   .modal-content{
-    width: 60%;
+    max-width: 74.4rem;
+    padding: 7.3rem 6.4rem;
+  }
+  h3{
+    margin-bottom: 3rem;
+    @extend%font-title;
+    font-size: 2.7rem;
   }
 }
 
 .modal-content{
   margin: 0 auto;
+  background-color: #F4E4CF;
   &__wrap{
     display: flex;
+
+    @media(max-width:767px){
+      flex-direction: column;
+    }
    
 
   }
@@ -1514,10 +1568,17 @@ footer{
 
   &__images-wrap{
    display: grid;
+   gap: 3px;
    grid-template-columns: 2fr 1fr;
-   grid-template-rows: auto;
+   grid-template-rows: repeat(2, 11.8rem);
    grid-template-areas: "pic-a pic-b"
                           "pic-a pic-c";
+
+                          @media(max-width:767px){
+                            grid-template-columns: 1fr 1fr;
+                            grid-template-areas: "pic-a pic-a" 
+                            "pic-b pic-c";
+                          }
 
    img{
      width: 100%;
@@ -1538,14 +1599,21 @@ footer{
   }
 
   &__info{
-    flex: 1;
-    flex-shrink: 0;
-    padding: 2rem;
-    h4{
-      margin-bottom: 2rem;
-      @extend%font-bold;
-      font-size: 3rem;
+    flex-basis: 27.7rem;
+    flex-shrink: 1;
+    padding-inline-start: 3rem;
+    font-size: 1.4rem;
+    p{
+      margin-bottom: 0;
+      &:first-child{
+        margin-bottom: 5px;
+      }
     }
+    @media(max-width:767px){
+      padding-inline-start: 0;
+      padding-top: 3rem;
+    }
+    
   }
 }
 
@@ -1800,10 +1868,133 @@ footer{
   bottom: -20rem;
   z-index: 3;
   left: 0;
+  @media(max-width:767px){
+    bottom: -2rem;
+  }
 }
 
 .waleef{
   margin-top: 14rem;
   background-color: #F4E4CF;
   background-image: linear-gradient(to bottom,#F4E4CF, #fdf0df);
+  @media(max-width:767px){
+    margin-top: 0;
+  }
+}
+
+.video-sec{
+  width: 22.7rem;
+  height: 21rem;
+  border-radius: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+
+  .stick{
+    transform: translateY(-18rem);
+  }
+
+  .video-tumb{
+    width:18.6rem;
+    height: 10.9rem;
+    overflow: hidden;
+    border-radius: 1.3rem;
+    border: 6px solid #707070;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .btn{
+      left: 50%;
+      transform: translateX(-50%);
+
+    }
+  }
+
+}
+.demmy{
+  height: 60rem;
+  background-color: #FFEFDB;
+  position: relative;
+  @media(max-width:767px){
+    height: 20rem;
+   }
+}
+
+.container-video{
+  position: relative;
+  @media(min-width:1600px){
+    max-width: 1376px;
+  }
+}
+
+
+
+#modalzoya{
+  .modal-content{
+    &__images-wrap{
+      grid-template-columns: repeat(2, 16.8rem);
+      grid-template-rows: 20.8rem;
+      grid-template-areas: none;
+                             
+   
+                             @media(max-width:767px){
+                               grid-template-columns: 1fr 1fr;
+                               grid-template-areas: "pic-a pic-a" 
+                               "pic-b pic-c";
+                             }
+                             img{
+                               grid-area: auto;
+                             }
+    }
+  }
+}
+#modalozka{
+  .modal-content{
+    &__images-wrap{
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 10.3rem);
+      grid-template-areas: "pic-a pic-b"
+                            "pic-a pic-c";
+                             
+   
+                             @media(max-width:767px){
+                               grid-template-areas: auto;
+                             }
+                             img{
+                              &:first-child{
+                                grid-area: pic-a;
+                              }
+                             }
+    }
+  }
+}
+
+#modalaya{
+  .modal-content{
+    &__images-wrap{
+      grid-template-columns: repeat(2, 16.8rem);
+      grid-template-rows: 20.8rem;
+      grid-template-areas: none;
+                             
+   
+                             @media(max-width:767px){
+                               grid-template-columns: 1fr 1fr;
+                               grid-template-areas: "pic-a pic-a" 
+                               "pic-b pic-c";
+                             }
+                             img{
+                               grid-area: auto;
+                             }
+    }
+  }
 }
