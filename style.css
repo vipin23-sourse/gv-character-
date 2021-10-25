@@ -2417,4 +2417,8 @@ footer .footer-bottom .footer-links a {
     display: none;
   }
 }
+
+#Compass, #Notebook, #direction {
+  opacity: 0;
+}
 /*# sourceMappingURL=style.css.map */
