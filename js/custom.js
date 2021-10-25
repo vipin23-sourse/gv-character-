@@ -36,6 +36,58 @@
   })
 
 
+//   mobileOnlySlider(".chara-item-slider", true, false, 767);
+
+// function mobileOnlySlider($slidername, $dots, $arrows, $breakpoint) {
+// 	var slider = $($slidername);
+// 	var settings = {
+// 		mobileFirst: true,
+// 		dots: $dots,
+// 		arrows: $arrows,
+// 		responsive: [
+// 			{
+// 				breakpoint: $breakpoint,
+// 				settings: "unslick"
+// 			}
+// 		]
+// 	};
+
+// 	slider.slick(settings);
+
+// 	$(window).on("resize", function () {
+// 		if ($(window).width() > $breakpoint) {
+// 			return;
+// 		}
+// 		if (!slider.hasClass("slick-initialized")) {
+// 			return slider.slick(settings);
+// 		}
+// 	});
+// } // Mobile Only Slider
+
+ 
+    $('.chara-item-mobile').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+        mobileFirst: true,
+        arrows: true,
+      dots: false,
+      autoplay: false,
+      variableWidth: true,
+      infinite: false,
+      centerMode: true,
+      centerPadding:'80px',
+      
+        responsive: [
+            {
+                breakpoint: 769,
+                settings: 'unslick'
+            }
+        ]
+    });
+  
+  
+
+
 
   
 $('.media-slider').slick({
@@ -52,7 +104,7 @@ $('.media-slider').slick({
         centerMode: false,
         slidesToShow: 2,
         slidesToScroll: 2,
-        variableWidth: true,
+        variableWidth: false,
         
       },
 
@@ -68,13 +120,61 @@ $('.media-slider').slick({
 });
 
 
+// $('.chara-item-slider').slick({
+//   infinite: true,
+//   slidesToShow: 1,
+//   slidesToScroll: 3,
+// arrows: true,
+
+ 
+
+//   responsive: [{
+//     breakpoint: 767,
+//     settings: {
+//       slidesToShow: 1,
+//       slidesToScroll: 1,
+//       // variableWidth: true,
+      
+//     },
+
+//     breakpoint: 1024,
+//     settings: {
+//       centerMode: false,
+//       slidesToShow: 1,
+//       slidesToScroll: 2,
+//       // variableWidth: true,
+    
+//     }
+//   }]
+// });
+
+// $('.chara-item-slider').slick({
+  
+//   responsive: [{
+//     breakpoint: 767,
+//     settings: {
+//       centerMode: false,
+//       slidesToShow: 1,
+//       slidesToScroll: 1,
+//       variableWidth: true,
+      
+//     },
+
+//     breakpoint: 768,
+//     settings: unslick,
+//   }]
+// });
+
+
+
+
 $('.video-pop').click(function () {
   
   $('.video-playBtn').addClass('popupVisible');
 });
 
-$(".close").on('click', function(){
-  stopVideo();
+  $(".close").on('click', function(){
+    stopVideo();
 });
 
 
@@ -160,7 +260,7 @@ let last_known_scroll_position = 0;
 let updatePath = false;
 
 const element = document.querySelector('svg');
-const path = element.querySelector('#Path_15');
+const path = element.querySelector('#Path_8');
 const path1 = element.querySelector('#Path_16');
 let totalLength = 0;
 
@@ -290,3 +390,42 @@ window.addEventListener('scroll', function(e) {
 
 // // Add an event handler to the document for the "onscroll" event
 // document.addEventListener("scroll", scrollAnimTriggerCheck);
+
+// For more information, see greensock.com/docs/v3/Plugins/ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// You can use a ScrollTrigger in a tween or timeline
+
+ScrollTrigger.defaults({
+    toggleActions: 'play pause reverse none',
+    markers: false,
+});
+
+/* HERO */
+var hero = gsap.timeline({defaults:{
+	ease: "back"
+}});
+
+hero
+
+.from('#Compass',{opacity:.1})
+
+
+var hero_out = gsap.timeline({defaults:{
+	ease: "none"
+}});
+
+hero_out
+.to('#Compass',{opacity:1, duration: 1},"<")
+
+
+
+ScrollTrigger.create({
+	animation: hero_out,
+	trigger: '.waleef',
+	start: '70% 50%',
+	end: '100% 50%',
+	scrub: 1,
+	pin: false,
+	id: 'hero_out'
+});
