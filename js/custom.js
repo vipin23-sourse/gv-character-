@@ -408,7 +408,7 @@ var hero = gsap.timeline({defaults:{
 
 hero
 
-.from('#Compass',{opacity:.1})
+.from('#Compass',{opacity:0})
 
 
 var hero_out = gsap.timeline({defaults:{
@@ -429,3 +429,58 @@ ScrollTrigger.create({
 	pin: false,
 	id: 'hero_out'
 });
+
+
+var hero1 = gsap.timeline({defaults:{
+	ease: "back"
+}
+});
+
+hero1
+
+  .from('#Notebook', { opacity: 0 })
+
+  var hero1_out = gsap.timeline({defaults:{
+    ease: "none"
+  }});
+  
+  hero1_out
+  .to('#Notebook', { opacity: 1, duration: 1 }, "<")
+  
+  ScrollTrigger.create({
+    animation: hero1_out,
+    trigger: '.zoya',
+    start: '80% 50%',
+    end: '100% 50%',
+    scrub: 1,
+    pin: false,
+    id: 'hero1_out'
+  });
+
+
+
+  var ozka = gsap.timeline({defaults:{
+    ease: "back"
+  }
+  });
+  
+  ozka
+  
+    .from('#direction', { opacity: 0 })
+  
+    var ozka_out = gsap.timeline({defaults:{
+      ease: "none"
+    }});
+    
+    ozka_out
+    .to('#direction', { opacity: 1, duration: 1 }, "<")
+    
+    ScrollTrigger.create({
+      animation: ozka_out,
+      trigger: '.ozka',
+      start: '60% 50%',
+      end: '100% 50%',
+      scrub: 1,
+      pin: false,
+      id: 'ozka_out'
+    });
