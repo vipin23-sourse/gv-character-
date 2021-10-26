@@ -1821,7 +1821,6 @@ footer .footer-bottom .footer-links a {
   left: 50%;
   transform: translateX(-50%);
   top: 78%;
-  z-index: 1;
 }
 
 .line {

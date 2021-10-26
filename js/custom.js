@@ -261,18 +261,16 @@ let updatePath = false;
 
 const element = document.querySelector('svg');
 const path = element.querySelector('#Path_8');
-const path1 = element.querySelector('#Path_16');
 let totalLength = 0;
 
 initPath(path)
+
 
 function initPath(path){
    totalLength = path.getTotalLength();
    path.style.strokeDasharray = `${totalLength}`;
    path.style.strokeDashoffset = totalLength;
 }
-
-
 
 
 function handleEntries(entries) {
@@ -484,3 +482,5 @@ hero1
       pin: false,
       id: 'ozka_out'
     });
+
+
