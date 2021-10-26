@@ -254,17 +254,19 @@ $(document).ready(function() {
 // lineTwo();
 
 
-
 let ticking = false;
 let last_known_scroll_position = 0;
 let updatePath = false;
 
 const element = document.querySelector('svg');
-const path = element.querySelector('#Path_8');
+const path8 = element.querySelector('#Path_8');
+const path15 = element.querySelector('#Path_15');
+const path18 = element.querySelector('#Path_18');
+let currentPath;
 let totalLength = 0;
-
-initPath(path)
-
+initPath(path8);
+initPath(path15);
+initPath(path18);
 
 function initPath(path){
    totalLength = path.getTotalLength();
@@ -304,31 +306,43 @@ function doSomething(scroll_pos) {
   }
   window.requestAnimationFrame(()=>{
     const center = window.innerHeight / 2;
-    const boundaries = path.getBoundingClientRect();
+    const boundaries = currentPath.getBoundingClientRect();
     const top = boundaries.top;
     const height = boundaries.height;
     const percentage = (center - top ) / height;
     const drawLength = percentage > 0 ? totalLength * percentage : 0;
-    path.style.strokeDashoffset = drawLength < totalLength ? totalLength - drawLength : 0;
+    currentPath.style.strokeDashoffset = drawLength < totalLength ? totalLength - drawLength : 0;
  
   })
 
 }
 
 window.addEventListener('scroll', function(e) {
-  last_known_scroll_position = window.scrollY;
-
+  const isScrollDown = window.scrollY > last_known_scroll_position;
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      doSomething(last_known_scroll_position);
+      const newPath = [path8, path15, path18].filter((p) => {
+        const data = p.getBoundingClientRect();
+        if (isScrollDown) {
+          return data.y > 0 && data.y < 100;
+        }
+        return data.y < 100;
+      });
+      const updatedPath = newPath.length ? newPath.pop() : currentPath;
+      if(updatedPath !== currentPath && isScrollDown) {
+        initPath(updatedPath);
+      }
+      currentPath = updatedPath;
+      if (currentPath) {
+        doSomething(last_known_scroll_position);
+      }
       ticking = false;
+      last_known_scroll_position = window.scrollY;
     });
 
     ticking = true;
   }
 });
-
-
 
 
 
@@ -420,9 +434,9 @@ hero_out
 
 ScrollTrigger.create({
 	animation: hero_out,
-	trigger: '.waleef',
-	start: '70% 50%',
-	end: '100% 50%',
+	trigger: '.wander',
+	start: '50% 50%',
+	end: '80% 50%',
 	scrub: 1,
 	pin: false,
 	id: 'hero_out'
@@ -447,7 +461,7 @@ hero1
   
   ScrollTrigger.create({
     animation: hero1_out,
-    trigger: '.zoya',
+    trigger: '.waleef',
     start: '80% 50%',
     end: '100% 50%',
     scrub: 1,
@@ -475,7 +489,7 @@ hero1
     
     ScrollTrigger.create({
       animation: ozka_out,
-      trigger: '.ozka',
+      trigger: '.zoya',
       start: '60% 50%',
       end: '100% 50%',
       scrub: 1,
