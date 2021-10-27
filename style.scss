@@ -1163,6 +1163,8 @@ button{
         position: relative;
         cursor: pointer;
         margin: 0 auto;
+    box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.3);
+
 
         img{
             width: 100%;
@@ -1239,6 +1241,7 @@ position: absolute;
     cursor: pointer;
     flex-shrink: 0;
     margin-inline-end: 4rem;
+    box-shadow: 3px 3px 19px rgba(0, 0, 0, 0.5);
     @media(max-width:37.5em){
        margin-inline-end: 0;
        }
