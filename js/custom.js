@@ -327,9 +327,9 @@ window.addEventListener('scroll', function(e) {
       const newPath = [path8, path15, path18].filter((p) => {
         const data = p.getBoundingClientRect();
         if (isScrollDown) {
-          return data.y > 0 && data.y < 100;
+          return data.y > 0 && data.y < 90;
         }
-        return data.y < 100;
+        return data.y < 90;
       });
       const updatedPath = newPath.length ? newPath.pop() : currentPath;
       if(updatedPath !== currentPath && isScrollDown) {
