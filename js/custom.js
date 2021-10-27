@@ -503,31 +503,5 @@ hero1
 
 
 
-    var waleefz = gsap.timeline({defaults:{
-      ease: "back"
-    }
-    });
-    
-    waleefz
-    
-      .from('.waleef .characters-section__character-img', { opacity: 0, scale:0,Y: '-500px' })
-    
-      var waleefz_out = gsap.timeline({defaults:{
-        ease: "none"
-      }});
-      
-      waleefz_out
-      .to('.waleef .characters-section__character-img', { opacity: 1, scale:1, duration: .3,Y: '0' }, "<")
-      
-      ScrollTrigger.create({
-        animation: waleefz_out,
-        trigger: '.waleef',
-        start: '0% 50%',
-        end: '50% 50%',
-        scrub: 1,
-        pin: false,
-        id: 'waleefz_out'
-      });
-  
 
 

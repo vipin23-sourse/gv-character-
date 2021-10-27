@@ -503,8 +503,8 @@ body {
   .main-banner__text {
     background-size: cover;
     width: 34.5rem;
-    height: 17rem;
-    top: 0.4rem;
+    height: 9rem;
+    top: 3.4000000000000004rem;
   }
 }
 
@@ -650,6 +650,7 @@ body {
     flex-direction: column;
     position: relative;
     text-align: center;
+    min-height: auto;
   }
 }
 
@@ -809,7 +810,7 @@ body {
   left: 50%;
   top: -5rem;
   transform: translateX(-30%);
-  opacity: 0;
+  opacity: 1;
 }
 
 @media (max-width: 75em) {
@@ -879,6 +880,13 @@ body {
 @media (max-width: 767px) {
   .wander .characters-section__character-details {
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 65em) {
+  .wander .characters-section__character-details__top .chara-info {
+    order: -1;
+    margin-top: 10rem;
   }
 }
 
@@ -2068,6 +2076,10 @@ footer .footer-bottom .footer-links a {
   flex-shrink: 0;
 }
 
+.modal-content__images img {
+  height: 25rem;
+}
+
 .modal-content__images-wrap {
   display: grid;
   gap: 3px;
@@ -2139,6 +2151,7 @@ footer .footer-bottom .footer-links a {
 #whowaleef .modal-content__info {
   margin-top: 5rem;
   font-size: 1.7rem;
+  flex-basis: 70%;
 }
 
 .banner-img {
@@ -2656,14 +2669,11 @@ footer .footer-bottom .footer-links a {
   height: 44px;
   padding: 0;
   border-radius: 50%;
-  background: var(--white);
   text-align: center;
-  background-image: url(img/dropdown-orange.svg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-image: url(img/arrow.svg);
   background-repeat: no-repeat;
-  background-size: 18px;
+  background-size: contain;
   background-position: center center;
-  transform: rotate(90deg);
 }
 
 .gallery-content .carousel-control-next .carousel-control-next-icon,
@@ -2672,14 +2682,12 @@ footer .footer-bottom .footer-links a {
   height: 44px;
   padding: 0;
   border-radius: 50%;
-  background: var(--white);
   text-align: center;
-  background-image: url(img/dropdown-orange.svg);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-image: url(img/arrow.svg);
   background-repeat: no-repeat;
-  background-size: 18px;
+  background-size: contain;
   background-position: center center;
-  transform: rotate(-90deg);
+  transform: scaleX(-1);
 }
 
 .gallery-content .carousel-control-prev {
@@ -2841,6 +2849,11 @@ footer .footer-bottom .footer-links a {
     transform: translateX(-50%);
     zoom: 0.9;
   }
+}
+
+#exampleModal .modal-dialog {
+  width: 74.8rem;
+  margin: 0 auto;
 }
 
 html:lang(ar) .lang-btn--en {
