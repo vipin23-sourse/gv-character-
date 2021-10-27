@@ -538,6 +538,18 @@ body {
   display: block;
 }
 
+@media (max-width: 85.375em) {
+  .chara-info__title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .chara-info__title {
+    font-size: 2.8rem;
+  }
+}
+
 .chara-info__sub-title {
   display: block;
   position: relative;
@@ -1981,6 +1993,12 @@ footer .footer-bottom .footer-links a {
   left: 50%;
   transform: translateX(-50%);
   top: 63%;
+}
+
+@media (max-width: 1336px) {
+  .svg-anim {
+    top: 68%;
+  }
 }
 
 @media (max-width: 1100px) {
