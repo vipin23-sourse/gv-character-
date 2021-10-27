@@ -12,28 +12,28 @@
 // }
 
   // video gallery
-  $('.modal').on('shown.bs.modal', function (e) {
+  // $('.modal').on('shown.bs.modal', function (e) {
     
-    $('.slidervideo-nav').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      asNavFor: '.slider-video-gallery',
-      dots: false,
-      focusOnSelect: true,
-      infinite: false,
-      arrows:false,
-    });
+  //   $('.slidervideo-nav').slick({
+  //     slidesToShow: 4,
+  //     slidesToScroll: 1,
+  //     asNavFor: '.slider-video-gallery',
+  //     dots: false,
+  //     focusOnSelect: true,
+  //     infinite: false,
+  //     arrows:false,
+  //   });
   
-    $('.slider-video-gallery').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: false,
-      fade: true,
-      asNavFor: '.slidervideo-nav',
-      autoplay: false,
-      arrows:true,
-    });
-  })
+  //   $('.slider-video-gallery').slick({
+  //     slidesToShow: 1,
+  //     slidesToScroll: 1,
+  //     infinite: false,
+  //     fade: true,
+  //     asNavFor: '.slidervideo-nav',
+  //     autoplay: false,
+  //     arrows:true,
+  //   });
+  // })
 
 
 //   mobileOnlySlider(".chara-item-slider", true, false, 767);
@@ -177,6 +177,9 @@ $('.video-pop').click(function () {
     stopVideo();
 });
 
+$('#exampleModal').on('hide.bs.modal', () => {
+  $('#video').attr('src', 'http://media.w3.org/2010/05/sintel/trailer.mp4');
+});
 
 $(function() {
   $(".video-pop").on("click", function(e) {
