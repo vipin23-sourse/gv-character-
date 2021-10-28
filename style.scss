@@ -1770,11 +1770,12 @@ footer{
     font-size: 3rem;
     padding: 1px;
     z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     span{
-      line-height: 1;
-      display: inline-block;
-      transform: translateY(-2px);
+  
     }
   }
 }
