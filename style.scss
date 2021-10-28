@@ -718,7 +718,7 @@ button{
        }
         &__top{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
             margin-bottom: 6rem;
             @media(max-width:65em){
@@ -1197,6 +1197,9 @@ button{
         cursor: pointer;
         margin: 0 auto;
     box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.3);
+    @media(max-width:37.5rem){
+      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    }
 
 
         img{
@@ -1277,6 +1280,7 @@ position: absolute;
     box-shadow: 3px 3px 19px rgba(0, 0, 0, 0.5);
     @media(max-width:37.5em){
        margin-inline-end: 0;
+       box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
        }
     
 
@@ -2683,6 +2687,7 @@ background-image: url(img/arrow.svg);
     margin: 0 auto;
     @media(max-width:700px){
       width: 100%;
+      margin: 1.5rem;
     }
   }
  
