@@ -43,6 +43,36 @@
     font-style: normal;
     font-display: block;
   }
+
+
+  @font-face {
+    font-family: 'Cairo';
+    src: url('font/cairo/cairo-v9-arabic-regular.woff2') format('woff2'),
+        url('font/cairo-v9-arabic-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('font/cairo/cairo-v9-arabic-700.woff2') format('woff2'),
+        url('font/cairo-v9-arabic-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('font/cairo/cairo-v9-arabic-300.woff2') format('woff2'),
+        url('font/cairo-v9-arabic-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
   
   [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
@@ -273,6 +303,11 @@
     @extend%font-bold;
     cursor: pointer;
 
+    @media(max-width:37.5em){
+      min-width: 10rem;
+      font-size: 1.2rem;
+    }
+
     &--primary{
       background-color: #B78C59;
       color: var(--color-white);
@@ -364,6 +399,7 @@ body{
       @media(min-width:1600px){
         max-width: 100%;
       }
+
     }
 
     &__wrap{
@@ -375,7 +411,7 @@ body{
     &__logo{
      
       @media(max-width:37.5em){
-        width: 13rem;
+        width: 17rem;
         margin-inline-end: auto;
       }
     }
@@ -385,10 +421,7 @@ display: flex;
 align-items: center;
 
 button{
-  display: none;
-  @media(min-width:37.5em){
-    display: block;
-  }
+  
 }
     }
 
@@ -1560,7 +1593,7 @@ position: absolute;
   
 }
 .footer-baloon{
-  top: 0;
+  top: -5rem;
     transform: translateY(-29rem);
     right: 0;
     @media(max-width:90em){
@@ -2170,20 +2203,20 @@ footer{
   color: var(--color-white);
   margin-inline-start: 1rem;
   cursor: pointer;
+  text-decoration: none;
+  &:hover{
+    color: var(--color-white);
+  }
+
   @extend%font-bold;
 
   &--en{
-    position: relative;
-    &::after{
-      content: "";
-      display: inline-block;
-      height: 1.5rem;
-      position: absolute;
-      right: -5px;
-      top: 5px;
-      width: 1px;
-      background-color: var(--color-white);
-    }
+    
+  }
+
+  &--ar{
+    font-family: 'Cairo';
+    font-weight: 400;
   }
 }
 
@@ -2657,59 +2690,3 @@ background-image: url(img/arrow.svg);
 
 
 // Arabic CSS
-html:lang(ar) .lang-btn--en {
-  display: none;
-}
-
-html:lang(ar) .lang-btn--ar {
-  display: block;
-  font-family: Cairo;
-}
-
-html:lang(ar) .characters-section__character {
-  left: auto;
-  right: 0;
-  transform: translateX(243px);
-}
-
-html:lang(ar) .chara-info__sub-title::after {
-  left: auto;
-  right: 0;
-}
-
-html:lang(ar) .characters-section__character-details__top::after {
-  background-image: linear-gradient(to right, #F6EAD7, #EAD1AE);
-}
-
-html:lang(ar) .zoya .characters-section__character,
-html:lang(ar) .aya .characters-section__character {
-  transform: translateX(-243px);
-}
-
-html:lang(ar) .zoya .characters-section__character,
-html:lang(ar) .aya .characters-section__character {
-  right: auto;
-  left: 0;
-}
-
-html:lang(ar) footer .footer-bottom .news-letter .btn {
-  right: auto;
-  left: 1.1rem;
-}
-
-html:lang(ar) .watchonus__footer-building {
-  transform: rotateY(180deg);
-}
-
-html:lang(ar) .footer-chara,
-html:lang(ar) .footer-baloon {
-  right: auto;
-  left: 0;
-  transform: rotateY(180deg);
-}
-
-html:lang(ar) .gallery-content .carousel-item a {
-	right: auto;
-	left: 15px;
-}
-
