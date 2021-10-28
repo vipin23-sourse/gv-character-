@@ -1690,6 +1690,11 @@ footer{
                 border-radius: 3rem;
                 padding: 1.5rem 2rem;
                 font-size: 1.6rem;
+
+                &:focus{
+                  box-shadow: none;
+                  outline: none;
+                }
 			}
 			.form-control::placeholder{color:var(--color-black); font-size: 1.6rem;};
 			.btn {
@@ -2113,7 +2118,7 @@ footer{
   border-radius: var(--border-radius);
 }
 
-#gallery-img1{
+.gallerypopup{
   .close{
     width: 3rem;
     height: 3rem;
@@ -2688,5 +2693,8 @@ background-image: url(img/arrow.svg);
   z-index: 4;
 }
 
+.gallerypopup{
+  background-color: var(--color-primary);
+}
 
 // Arabic CSS
