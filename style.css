@@ -605,7 +605,7 @@ body {
   background-color: #8F3715;
   position: absolute;
   left: 0;
-  top: 3rem;
+  top: 5rem;
   margin-top: 1rem;
 }
 
@@ -1259,7 +1259,7 @@ body {
 }
 
 .ozka .chara-info__sub-title::after {
-  top: 5rem;
+  top: 3rem;
 }
 
 .ozka .characters-section__character-details__top {
@@ -1391,7 +1391,7 @@ body {
 }
 
 .aya .chara-info__sub-title::after {
-  top: 5rem;
+  top: 3rem;
 }
 
 .aya .characters-section__character-details__top {
